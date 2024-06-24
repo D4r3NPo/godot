@@ -531,6 +531,7 @@ Node *SceneState::instantiate(GenEditState p_edit_state) const {
 
 			bool valid;
 			Array array = dnp.base->get(dnp.property, &valid);
+			ERR_FAIL_COND_V_MSG(!valid, nullptr, vformat("Failed to get property %s of %s", dnp.property, dnp.base->get_name()));
 			ERR_CONTINUE(!valid);
 			array = array.duplicate();
 
